@@ -1,0 +1,31 @@
+{
+  "name": "mes-de-qa-2024",
+  "version": "1.0.0",
+  "description": "Repo con relación a lo que vamos a trabajar en el Mes de QA 2024",
+  "scripts": {
+    "test": "cypress run --config-file cypress.test.config.js",
+    "test:e2e": "cypress run --spec 'cypress/tests/e2e/' --config-file cypress.test.config.js",
+    "test:api": "cypress run --spec 'cypress/tests/api/' --config-file cypress.test.config.js",
+    "test:ui": "npx cypress open --config-file cypress.test.config.js",
+    "test:smoke": "CYPRESS_INCLUDE_TAGS=critical npx cypress run --config-file cypress.test.config.js",
+    "test:smoke:e2e": "CYPRESS_INCLUDE_TAGS=critical npx cypress run --spec 'cypress/tests/e2e/' --config-file cypress.test.config.js"
+  },
+  "keywords": [],
+  "author": "Paola Lara, Manoel Pereira",
+  "devDependencies": {
+    "@testing-library/cypress": "^10.0.1",
+    "cypress": "^13.8.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-tags": "^1.1.2",
+    "cypress-xpath": "^2.0.1",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-cypress": "^2.14.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "ml5": "^1.0.0"
+  }
+}

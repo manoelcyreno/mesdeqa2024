@@ -22,3 +22,22 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Dependency directories
+node_modules/
+
+# dotenv environment variables file
+.env
+/env/.env
+
+# other files
+cypress.env.json
+package-lock.json
+
+# macOS
+.DS_Store
+
+# directories
+/cypress/screenshots/
+/cypress/videos/
+*/reports/*
