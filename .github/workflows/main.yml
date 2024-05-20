@@ -1,0 +1,65 @@
+name: Cypress Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule: 
+    - cron: '0 0 * * *'
+
+jobs:
+  setup:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify the GITHUB_REPOSITORY value
+        run: echo "The value of GITHUB_REPOSITORY is $GITHUB_REPOSITORY"
+
+      - name: Verify the GITHUB_WORKFLOW value
+        run: echo "The value of GITHUB_WORKFLOW is $GITHUB_WORKFLOW"
+
+  api-test:
+    needs: setup
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install npm dependencies
+        run: npm install
+          
+      - name: Run API tests
+        run: npm run test:api
+
+  e2e-test:
+    needs: api-test
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install npm dependencies
+        run: npm install
+          
+      - name: Run E2E tests
+        run: npm run test:e2e
