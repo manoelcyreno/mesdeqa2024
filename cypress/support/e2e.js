@@ -16,6 +16,8 @@
 // Import commands.js using ES2015 syntax:
 import './api-jsonPlaceHolder'
 import './commands'
+import './functions-commons'
+import './functions-expected'
 
 import 'cypress-mochawesome-reporter/register'
 
