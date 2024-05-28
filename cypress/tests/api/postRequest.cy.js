@@ -1,16 +1,20 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /// <reference types="cypress" />
 
-//TODO
-describe.skip('API Test suite about: Post Request', function () {
+describe('API Test suite about: Post Request', function () {
   let getResponse
+  const body = {
+    userId: 1,
+    id: 1,
+    title: 'testing qa month ',
+    body: 'testing qa month testing qa month testing qa month testing qa month testing qa month testing qa month testing qa month testing qa month',
+  }
 
   before(function () {
     // Clear cookies and cache before start the tests
     cy.clearCookies()
     cy.clearLocalStorage()
 
-    cy.getJsonPlaceHolder().then((response) => {
+    cy.postJsonPlaceHolder(body).then((response) => {
       getResponse = response
     })
   })
@@ -22,8 +26,8 @@ describe.skip('API Test suite about: Post Request', function () {
       .should('include', 'application/json')
   })
 
-  it(['critical'], 'Validate test for status code is 200', function () {
-    cy.wrap(getResponse).its('status').should('eq', 200)
+  it(['critical'], 'Validate test for status code is 201', function () {
+    cy.wrap(getResponse).its('status').should('eq', 201)
   })
 
   it(['high'], 'Validate test body content return valid info', function () {
@@ -37,8 +41,7 @@ describe.skip('API Test suite about: Post Request', function () {
   })
 
   it(['medium'], 'Validate if Id is a non-negative integer', function () {
-    cy.wrap(getResponse)
-      .its('id')
+    cy.wrap(getResponse.body.id)
       .should('be.a', 'number')
       .and('to.be.at.least', 0)
   })

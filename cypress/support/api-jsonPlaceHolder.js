@@ -4,34 +4,26 @@ const header = {
 }
 
 function getJsonPlaceHolder(id) {
-  if (id) {
-    cy.request({
-      method: 'GET',
-      url: baseUrl + `/posts/${id}`,
-      headers: header,
-    }).then((response) => {
-      expect(response.status).to.eq(200)
-      return response
-    })
-  } else {
-    cy.log('A case has not been created to cancel.')
-  }
+  cy.request({
+    method: 'GET',
+    url: baseUrl + `/posts/${id}`,
+    headers: header,
+  }).then((response) => {
+    expect(response.status).to.eq(200)
+    return response
+  })
 }
 
-function postJsonPlaceHolder(body, id) {
-  if (id) {
-    cy.request({
-      method: 'POST',
-      url: baseUrl + `/consultation/${id}/close`,
-      headers: header,
-      body: body,
-    }).then((response) => {
-      expect(response.status).to.eq(201)
-      return response
-    })
-  } else {
-    cy.log('A case has not been created to cancel.')
-  }
+function postJsonPlaceHolder(body) {
+  cy.request({
+    method: 'POST',
+    url: baseUrl + '/posts',
+    headers: header,
+    body: body,
+  }).then((response) => {
+    expect(response.status).to.eq(201)
+    return response
+  })
 }
 
 Cypress.Commands.add('getJsonPlaceHolder', getJsonPlaceHolder)
