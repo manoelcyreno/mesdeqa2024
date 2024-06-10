@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Repo con relación a lo que vamos a trabajar en el Mes de QA 2024",
   "scripts": {
-    "test": "cypress run --config-file cypress.test.config.js",
-    "test:e2e": "cypress run --spec 'cypress/tests/e2e/' --config-file cypress.test.config.js",
-    "test:api": "cypress run --spec 'cypress/tests/api/' --config-file cypress.test.config.js",
+    "test": "npx cypress run --config-file cypress.test.config.js",
+    "test:e2e": "npx cypress run --spec 'cypress/tests/e2e/' --config-file cypress.test.config.js",
+    "test:api": "npx cypress run --spec 'cypress/tests/api/' --config-file cypress.test.config.js",
     "test:ui": "npx cypress open --config-file cypress.test.config.js",
     "test:smoke": "CYPRESS_INCLUDE_TAGS=critical npx cypress run --config-file cypress.test.config.js",
     "test:smoke:e2e": "CYPRESS_INCLUDE_TAGS=critical npx cypress run --spec 'cypress/tests/e2e/' --config-file cypress.test.config.js"
