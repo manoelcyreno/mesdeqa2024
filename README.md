@@ -1,7 +1,7 @@
 [![Cypress Tests](https://github.com/manoelcyreno/mesdeqa2024/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/manoelcyreno/mesdeqa2024/actions/workflows/main.yml)
 
 # Mes de QA 2024
-Repo con relación a lo que vamos a trabajar en el Mes de QA 2024
+Repository related with our presentation on "Mes de QA 2024" - [Presentation](https://docs.google.com/presentation/d/1Gq3D0p5YT8wcSVFWYZL7HIPLrvGFGYp6NfzD4hI6aIs/)
 
 ## Prerequisites
 
