@@ -10,22 +10,7 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  setup:
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Verify the GITHUB_REPOSITORY value
-        run: echo "The value of GITHUB_REPOSITORY is $GITHUB_REPOSITORY"
-
-      - name: Verify the GITHUB_WORKFLOW value
-        run: echo "The value of GITHUB_WORKFLOW is $GITHUB_WORKFLOW"
-
   api-test:
-    needs: setup
     timeout-minutes: 15
     runs-on: ubuntu-latest
 
