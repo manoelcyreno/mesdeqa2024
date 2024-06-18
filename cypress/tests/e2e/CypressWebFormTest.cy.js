@@ -34,7 +34,7 @@ describe('E2E Test suite about: Cypress Web Form Test Suite', function () {
 
     cy.clickOnElement(homePageLocators.getSubmitButton())
 
-    const expectedMessage = 'Received!'
+    const expectedMessage = 'Received! NOT WORK'
     cy.expectedResult_HaveText(
       successPageLocators.getMessage(),
       expectedMessage,
